@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DJ MEXX KINY - Servicios profesionales de DJ para eventos, fiestas privadas y corporativos en Perú. Música, remixes y ambientación perfecta para tu celebración.">
+    <meta name="keywords" content="DJ, música, eventos, fiestas, Perú, MEXX KINY, remixes, sonido profesional, bodas, corporativos">
+    <meta name="author" content="DJ MEXX KINY">
+    <meta property="og:title" content="DJ MEXX KINY - Servicios Profesionales de DJ en Perú">
+    <meta property="og:description" content="Experiencia musical única para tus eventos. Especialista en crear ambientes perfectos con la mejor selección musical.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://djmexxkiny.com">
+    
+    <title>DJ MEXX KINY - Servicios Profesionales de DJ en Perú</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Modal de Evento Promocional -->
+    <div id="eventModal" class="event-modal">
+        <div class="event-modal-overlay"></div>
+        <div class="event-modal-content">
+            <button class="event-modal-close" id="closeEventModal" aria-label="Cerrar anuncio">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="event-flyer">
+                <div class="event-flyer-image">
+                    <img src="FLYERS/evento-especial.webp" alt="Flyer del próximo evento especial DJ MEXX KINY">
+                </div>
+                
+                <div class="event-info">
+                    <div class="event-badge">
+                        <i class="fas fa-star"></i>
+                        EVENTO ESPECIAL
+                    </div>
+                    
+                    <h2 class="event-title">¡PRÓXIMO EVENTO!</h2>
+                    <h3 class="event-name">NOCHE DE REGGAETON</h3>
+                    
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Sábado 15 de Febrero</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 PM - 3:00 AM</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Club Nocturno Lima</span>
+                        </div>
+                        <div class="event-detail">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Entrada: S/. 25</span>
+                        </div>
+                    </div>
+                    
+                    <div class="event-description">
+                        <p>¡La mejor música reggaeton, remixes exclusivos y una noche inolvidable!</p>
+                        <p class="event-highlight">🎵 Los mejores hits del momento</p>
+                        <p class="event-highlight">🎉 Ambiente único y energía total</p>
+                    </div>
+                    
+                    <div class="event-actions">
+                        <a href="#contacto" class="btn-event-primary">
+                            <i class="fas fa-ticket-alt"></i>
+                            Reservar Mesa
+                        </a>
+                        <a href="tel:+51901301650" class="btn-event-secondary">
+                            <i class="fas fa-phone"></i>
+                            Llamar Ahora
+                        </a>
+                    </div>
+                    
+                    <div class="event-social">
+                        <p>¡Comparte el evento!</p>
+                        <div class="event-social-links">
+                            <a href="#" class="social-share facebook" aria-label="Compartir en Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-share instagram" aria-label="Compartir en Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-share whatsapp" aria-label="Compartir en WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-countdown" id="eventCountdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="header" id="inicio">
+        <!-- Imagen de fondo del hero -->
+        <div class="hero-background">
+            <img src="FLYERS/fondo2.webp" alt="DJ MEXX KINY en acción" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Navegación -->
+        <nav class="navbar">
+            <div class="nav-container container">
+                <a href="#inicio" class="logo">
+                    <i class="fas fa-music"></i>
+                    <span>DJ MEXX</span>
+                </a>
+                
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#bienvenida">Video</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#equipos">Equipos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <h1 class="hero-title">DJ MEXX KINY</h1>
+                    <span class="hero-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Perú
+                    </span>
+                    <p class="hero-description">
+                        Experiencia musical única para tus eventos. Especialista en crear 
+                        ambientes perfectos con la mejor selección musical, remixes exclusivos 
+                        y un sonido profesional que hará de tu celebración un momento inolvidable.
+                    </p>
+                    <a href="#servicios" class="btn-primary">
+                        <i class="fas fa-info-circle"></i>
+                        Más Información
+                    </a>
+                </div>
+                
+                <div class="hero-info">
+                    <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Ubicación</h3>
+                            <p>CDMX AV, Perú</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Teléfono</h3>
+                            <p>+51 901 301 650</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card fade-in">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Horario</h3>
+                            <p>8:00 AM - 12:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Bienvenida con Video -->
+    <section id="bienvenida" class="welcome-section">
+        <div class="container">
+            <header class="section-header">
+                <h2>Bienvenidos a la Sección de Música</h2>
+                <div class="section-divider"></div>
+                <p>Descubre la calidad de nuestros servicios y la energía que aportamos a cada evento</p>
+            </header>
+
+            <div class="welcome-content">
+                <!-- Contenido de texto -->
+                <div class="welcome-text-content">
+                    <div class="welcome-text">
+                        <p class="highlight">DJ MEXX KINY</p>
+                        <p>
+                            En esta sección podrás encontrar todo tipo de música a tu gusto.
+                            Estará disponible para todos: remixes, extends y mashups que harán 
+                            vibrar a tu audiencia y crear la atmósfera perfecta para cualquier ocasión.
+                        </p>
+                        <p>
+                            Con años de experiencia en el mundo de la música electrónica y el entretenimiento,
+                            nos especializamos en leer el ambiente y adaptar nuestra selección musical
+                            para mantener a todos bailando toda la noche.
+                        </p>
+                    </div>
+                    <a href="#servicios" class="btn-primary">
+                        <i class="fas fa-music"></i>
+                        Explorar Música
+                    </a>
+                </div>
+
+                <!-- Video al costado -->
+                <div class="welcome-video">
+                    <div class="video-wrapper">
+                        <video controls poster="FLYERS/fondo.webp" preload="metadata" aria-label="Video promocional DJ MEXX KINY">
+                            <source src="video/video.mp4" type="video/mp4">
+                            <source src="video/video.webm" type="video/webm">
+                            <p>Tu navegador no soporta el elemento de video. 
+                               <a href="video/video.mp4" download>Descargar el video</a>.
+                            </p>
+                        </video>
+                        
+                        <!-- Overlay opcional para play personalizado -->
+                        <div class="video-overlay">
+                            <div class="video-play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <header class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <div class="section-divider"></div>
+                <p>
+                    Ofrecemos servicios profesionales de DJ con diferentes paquetes 
+                    adaptados a tus necesidades. Desde eventos corporativos hasta 
+                    fiestas privadas, tenemos la solución perfecta para ti.
+                </p>
+            </header>
+
+            <div class="services-grid">
+                <article class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="FLYERS/sound_1-removebg-preview.webp" alt="Icono de sonido profesional">
+                    </div>
+                    <div class="service-content">
+                        <h3>Eventos Corporativos</h3>
+                        <p>
+                            Sonido profesional para eventos empresariales, 
+                            conferencias y celebraciones corporativas con 
+                            equipos de alta gama y música apropiada para el ambiente profesional.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Equipos de sonido profesional</li>
+                            <li><i class="fas fa-check"></i> Música ambiental apropiada</li>
+                            <li><i class="fas fa-check"></i> Micrófono para presentaciones</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            Saber más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="FLYERS/musica_amarillo-removebg-preview.webp" alt="Icono de música">
+                    </div>
+                    <div class="service-content">
+                        <h3>Fiestas Privadas</h3>
+                        <p>
+                            Ambientación musical personalizada para bodas, 
+                            cumpleaños, quinceañeros y celebraciones familiares 
+                            con repertorio adaptado a todos los gustos y edades.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Música personalizada</li>
+                            <li><i class="fas fa-check"></i> Iluminación LED</li>
+                            <li><i class="fas fa-check"></i> Interacción con invitados</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            Saber más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="service-card fade-in">
+                    <div class="service-icon">
+                        <img src="FLYERS/altavos-removebg-preview.webp" alt="Icono de altavoces">
+                    </div>
+                    <div class="service-content">
+                        <h3>Eventos Masivos</h3>
+                        <p>
+                            Equipos de sonido potentes para festivales, 
+                            conciertos y eventos al aire libre con 
+                            cobertura completa de audio y efectos especiales.
+                        </p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Sonido de alta potencia</li>
+                            <li><i class="fas fa-check"></i> Efectos especiales</li>
+                            <li><i class="fas fa-check"></i> Cobertura completa</li>
+                        </ul>
+                        <a href="#contacto" class="service-link">
+                            Saber más <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="services-cta">
+                <a href="#precios" class="btn-secondary">
+                    <i class="fas fa-list"></i>
+                    Ver Todos los Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Precios con Imagen -->
+    <section id="precios" class="pricing-section">
+        <div class="container">
+            <div class="pricing-content">
+                <!-- Información de precios -->
+                <div class="pricing-info">
+                    <h2>Lista de Precios</h2>
+                    <p>
+                        Ofrecemos tarifas competitivas y paquetes flexibles adaptados 
+                        a diferentes tipos de eventos. Todos nuestros servicios incluyen 
+                        equipos profesionales, montaje y desmontaje, además de un DJ 
+                        experimentado que garantizará el éxito de tu evento.
+                    </p>
+                    
+                    <div class="pricing-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Evento</th>
+                                    <th>Duración</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Eventos Corporativos
+                                    </td>
+                                    <td>4-6 horas</td>
+                                    <td class="price">$450</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-heart"></i>
+                                        Fiestas Privadas
+                                    </td>
+                                    <td>5-8 horas</td>
+                                    <td class="price">$350</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-building"></i>
+                                        Eventos Premium
+                                    </td>
+                                    <td>6-10 horas</td>
+                                    <td class="price">$400</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fas fa-users"></i>
+                                        Eventos Masivos
+                                    </td>
+                                    <td>8-12 horas</td>
+                                    <td class="price">Consultar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pricing-notes">
+                        <h4>Incluye:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Equipos de sonido profesional</li>
+                            <li><i class="fas fa-check"></i> Iluminación LED básica</li>
+                            <li><i class="fas fa-check"></i> Montaje y desmontaje</li>
+                            <li><i class="fas fa-check"></i> DJ profesional</li>
+                            <li><i class="fas fa-check"></i> Música personalizada</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="#contacto" class="btn-primary">
+                        <i class="fas fa-calculator"></i>
+                        Solicitar Cotización
+                    </a>
+                </div>
+
+                <!-- Imagen al costado -->
+                <div class="pricing-image">
+                    <img src="FLYERS/djmexx2.webp" alt="DJ MEXX KINY en evento profesional">
+                    <div class="pricing-image-overlay">
+                        <div class="pricing-badge">
+                            <i class="fas fa-star"></i>
+                            <span>Calidad Garantizada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipos -->
+    <section id="equipos" class="equipment-section">
+        <div class="container">
+            <header class="section-header">
+                <h2>Nuestros Equipos</h2>
+                <div class="section-divider"></div>
+                <p>
+                    Contamos con equipos de audio profesionales de última generación 
+                    que garantizan la mejor calidad de sonido para cualquier tipo de evento, 
+                    desde reuniones íntimas hasta grandes celebraciones.
+                </p>
+            </header>
+
+            <div class="equipment-grid">
+                <article class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img src="FLYERS/mesa_de_mezclas_de_dj.webp" alt="Mesa de mezclas profesional Pioneer DJ">
+                        <div class="equipment-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Mesa de Mezclas</h3>
+                        <p>
+                            Equipos de mezcla profesionales Pioneer DJ con múltiples canales 
+                            y efectos integrados para un control total del sonido y transiciones perfectas.
+                        </p>
+                        <div class="equipment-specs">
+                            <span><i class="fas fa-cog"></i> 4 canales</span>
+                            <span><i class="fas fa-sliders-h"></i> Efectos integrados</span>
+                            <span><i class="fas fa-usb"></i> Conectividad USB</span>
+                        </div>
+                        <a href="#contacto" class="equipment-link">
+                            Más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img src="FLYERS/sistema_de_audio_de_dj.webp" alt="Sistema de altavoces JBL profesional">
+                        <div class="equipment-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Sistema de Audio</h3>
+                        <p>
+                            Altavoces JBL de alta potencia y calidad que proporcionan 
+                            un sonido cristalino y potente en cualquier espacio, interior o exterior.
+                        </p>
+                        <div class="equipment-specs">
+                            <span><i class="fas fa-volume-up"></i> 2000W RMS</span>
+                            <span><i class="fas fa-signal"></i> Rango completo</span>
+                            <span><i class="fas fa-shield-alt"></i> Resistente</span>
+                        </div>
+                        <a href="#contacto" class="equipment-link">
+                            Más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img src="FLYERS/luces_del_de_dj.webp" alt="Sistema de iluminación LED profesional">
+                        <div class="equipment-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="equipment-content">
+                        <h3>Iluminación LED</h3>
+                        <p>
+                            Sistemas de iluminación LED programables que crean 
+                            ambientes únicos y espectaculares efectos visuales sincronizados con la música.
+                        </p>
+                        <div class="equipment-specs">
+                            <span><i class="fas fa-lightbulb"></i> LED RGB</span>
+                            <span><i class="fas fa-sync"></i> Sincronizado</span>
+                            <span><i class="fas fa-palette"></i> Multicolor</span>
+                        </div>
+                        <a href="#contacto" class="equipment-link">
+                            Más detalles <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="equipment-cta">
+                <a href="#contacto" class="btn-secondary">
+                    <i class="fas fa-tools"></i>
+                    Ver Todo el Equipamiento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Sección de Contacto -->
+    <footer id="contacto" class="footer">
+        <div class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Reserva una Fecha</h2>
+                        <p>
+                            ¿Listo para hacer de tu evento algo inolvidable? 
+                            Contáctanos y reserva la fecha de tu celebración. 
+                            Te garantizamos un servicio profesional y una 
+                            experiencia musical única que tus invitados recordarán para siempre.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Teléfono</h4>
+                                    <p><a href="tel:+51901301650">+51 901 301 650</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:info@djmexxkiny.com">info@djmexxkiny.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Ubicación</h4>
+                                    <p>CDMX AV, Perú</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Horario de Atención</h4>
+                                    <p>Lun - Dom: 8:00 AM - 12:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" action="#" method="POST" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo *</label>
+                                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+51 999 999 999" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Correo electrónico *</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha del evento *</label>
+                                <input type="date" id="fecha" name="fecha" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="direccion">Dirección del evento</label>
+                                <input type="text" id="direccion" name="direccion" class="form-input" placeholder="Dirección completa del evento">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo-evento">Tipo de evento</label>
+                                <select id="tipo-evento" name="tipo-evento" class="form-input">
+                                    <option value="">Selecciona el tipo</option>
+                                    <option value="boda">Boda</option>
+                                    <option value="cumpleanos">Cumpleaños</option>
+                                    <option value="corporativo">Evento Corporativo</option>
+                                    <option value="quinceanos">Quinceañeros</option>
+                                    <option value="graduacion">Graduación</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="invitados">Número aproximado de invitados</label>
+                            <input type="number" id="invitados" name="invitados" class="form-input" placeholder="Ej: 100" min="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Detalles del evento *</label>
+                            <textarea id="mensaje" name="mensaje" class="form-textarea" rows="5" 
+                                placeholder="Cuéntanos sobre tu evento: preferencias musicales, horario, requerimientos especiales, etc." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary form-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Solicitud
+                        </button>
+                        
+                        <p class="form-note">* Campos obligatorios</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            <i class="fas fa-music"></i>
+                            <span>DJ MEXX KINY</span>
+                        </div>
+                        <p>
+                            Creando experiencias musicales únicas desde 2020. 
+                            Tu evento, nuestra pasión. Profesionalismo y calidad garantizada.
+                        </p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/juan.garcia.75626" aria-label="Facebook" title="Síguenos en Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dj_mexx25k/" aria-label="Instagram" title="Síguenos en Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@djmexx23k" aria-label="TikTok" title="Síguenos en TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Angel David Carmen Vargas. Todos los derechos reservados. | Diseño web profesional</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de scroll to top -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
